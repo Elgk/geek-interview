@@ -1,15 +1,15 @@
 package ru.geekbrains.hw.task2;
 
- abstract class Car {
+public abstract class Car implements Moveable{
+    // если задача требует обязательной реализации интерфейса всеми наследниками, то лучше объявить его в родительском классе
+    protected Engine engine; // поле должно быть доступно только через геттеры и сеттеры
+    protected String name; // поле должно быть доступно наследникам
+    protected String color;
 
-    public Engine engine;
-    private String name;
-    private String color;
-
-    protected void start(){
+    public void start(){
         System.out.println("car starting");
     }
-    abstract void open();
+    public abstract void open();
 
     public Engine getEngine() {
         return engine;
@@ -34,5 +34,4 @@ package ru.geekbrains.hw.task2;
     public void setName(String name) {
         this.name = name;
     }
-
 }

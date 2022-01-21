@@ -1,5 +1,5 @@
 package ru.geekbrains.hw.task2;
 
- interface Stopable {
+public interface Stopable {
     void stop();
 }
