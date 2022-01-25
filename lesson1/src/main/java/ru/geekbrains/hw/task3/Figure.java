@@ -11,8 +11,10 @@ public abstract class Figure  {
     public abstract double areaCalculete();
 
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(name).append(": ").append(figureSquare);
-        return sb.toString();
+        // для простых конструкций StringBuilder применять не рекомендуется
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(name).append(": ").append(figureSquare);
+//        sb.toString();
+        return name + ": " + figureSquare;
     }
 }
