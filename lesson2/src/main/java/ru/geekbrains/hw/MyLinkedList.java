@@ -70,7 +70,7 @@ public class MyLinkedList<E>  {
     }
 
     public  void addFirst(E item){
-        Node newNode = new Node(item, firstNode);
+        Node newNode = new Node(item, null, firstNode);
         if (isEmpty()){
             lastNode = newNode;
         }else {
@@ -96,8 +96,8 @@ public class MyLinkedList<E>  {
     }
 
     public boolean add(int index, E item){
-        if (index < 0 ){
-            throw  new IllegalArgumentException("Неверный индекс");
+        if (index <= 0 || index >= count){
+            throw  new IllegalArgumentException("Неверный индекс, эта команда для вставки внутрь списка, а не по краям");
         }
         Node current = firstNode;
         for (int i = 0; i < index-1; i++) {
@@ -141,10 +141,10 @@ public class MyLinkedList<E>  {
         }
         E value = firstNode.getValue();
         if (firstNode.getNext() != null){
-            firstNode = firstNode.getNext();
+            firstNode = firstNode.getNext();// первым элементом становиться следующий элемент
             firstNode.setPrev(null);
         }else{
-            firstNode = null;
+            firstNode = null; // если элемент был единственным
         }
         count --;
         return value;
@@ -155,10 +155,10 @@ public class MyLinkedList<E>  {
             return null;
         }
         E value = lastNode.getValue();
-        if (lastNode.getPrev() == null){// это также первый элемент
+        if (lastNode.getPrev() == null){// это также и первый элемент
             firstNode = null;
         }else {
-            lastNode = lastNode.getPrev();
+            lastNode = lastNode.getPrev(); //последним элементом становиться предыдущий
             lastNode.setNext(null);
         }
         count --;
@@ -169,18 +169,18 @@ public class MyLinkedList<E>  {
         Node current = firstNode;
         if (current.getValue().equals(item)){
             return removeFirst();
-
-        }
-        while (!current.getValue().equals(item) && current != lastNode){
-                current = current.getNext();
         }
 
-        if (current == lastNode && !current.getValue().equals(item)) {
+        while (!current.getValue().equals(item) && current != null){
+                current = current.getNext(); // перебираем элементы
+        }
+        if (current == null) { // весь список пройден и значение не найдено, у последнего элемента ссылка на следующий элемент current  - пустая
             return  null;
         }
-        if (current == lastNode && current.getValue().equals(item)) {
-            return removeLast();
 
+        // значение  найдено
+        if (current == lastNode ) {
+            return removeLast();
         }
         E value = current.getValue();
         current.getPrev().setNext(current.getNext());
@@ -194,13 +194,16 @@ public class MyLinkedList<E>  {
         if (isEmpty()){
             return "[]";
         }
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("[");
         Node current = firstNode;
-        while (current != lastNode){
-            sb.append(current.getValue()).append(", ");
+        while (current != null){
+            sb.append(current.getValue());
             current = current.getNext();
+            if (current != null){
+                sb.append(", ");
+            }
         }
-        sb.append(lastNode.getValue());
+        sb.append("]");
         return sb.toString();
     }
 }

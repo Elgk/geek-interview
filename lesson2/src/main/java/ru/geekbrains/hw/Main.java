@@ -8,18 +8,25 @@ public class Main {
         System.out.println(list);
         list.addFirst(30);
         list.addLast(70);
+        list.addLast(20);
         list.add(100);
-        list.add(1, 200);
-        System.out.println(list);
-        list.set(1, 34);
-        System.out.println(list);
-        list.addFirst(50);
-        System.out.println(list);
-        list.removeLast();
-        System.out.println(list);
-        list.remove(200);
+//        System.out.println(list);
+//        list.remove(100);
+//        System.out.println(list);
+//        list.remove(20);
+//        list.add(100);
+//        list.add(1, 200);
+//        System.out.println(list);
+//        list.set(1, 34);
+//        System.out.println(list);
+//        list.addFirst(50);
+//        System.out.println(list);
+//        list.removeLast();
+//        System.out.println(list);
+//        list.remove(200);
         System.out.println(list);
 
+/*
         System.out.println("*** Task 2 *******");
 
         MyArraylist<Integer> intList = new MyArraylist<>();
@@ -41,6 +48,7 @@ public class Main {
             intlist2.add(i);
         }
         System.out.println(intlist2);
+*/
 
    /*     MyArraylist<String> strList = new MyArraylist<>();
         strList.add("aa");
