@@ -15,7 +15,7 @@ public class SyncPocket {
     private String data;
 
     public synchronized void put(String data) {
-        while (data != null || Thread.interrupted()){
+        while (this.data != null || Thread.interrupted()){
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -27,7 +27,7 @@ public class SyncPocket {
     }
 
     public synchronized String get() {
-        while (data == null || Thread.interrupted()){
+        while (this.data == null || Thread.interrupted()){
             try {
                 this.wait();
             } catch (InterruptedException e) {
@@ -35,7 +35,7 @@ public class SyncPocket {
             }
         }
         String dataTmp = data;
-        data = null;
+        this.data = null;
         this.notifyAll();
         return dataTmp;
     }
