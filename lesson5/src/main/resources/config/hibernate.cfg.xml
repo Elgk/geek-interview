@@ -13,5 +13,19 @@
         <property name="show_sql">true</property>
         <property name="current_session_context_class">thread</property>
         <mapping class="ru.geekbrains.hibernate.Student"/>
+
+<!--      for MySql  -->
+<!--        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
+<!--        <property name="connection.url">jdbc:mysql://localhost:3306/test_db?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false$useUnicode=true$characterEncoding=UTF-8$serverTimezone=UTC</property>-->
+<!--        <property name="connection.username">root</property>-->
+<!--        <property name="connection.password">5Potok9-</property>-->
+<!--        <property name="connection.pool_size">1</property>-->
+<!--        <property name="current_session_context_class">thread</property>-->
+<!--        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>-->
+<!--        <property name="hibernate.format_sql">true</property>-->
+<!--        <property name="hibernate.show_sql">true</property>-->
+
+<!--        <property name="hibernate.hbm2ddl.auto">update</property>-->
+<!--        <mapping class="ru.geekbrains.hibernate.Student"/>-->
     </session-factory>
 </hibernate-configuration>

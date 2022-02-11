@@ -4,19 +4,27 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "student")
+@NamedQueries({
+        @NamedQuery(name = "findAllStudents", query="select s from Student s")
+})
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "mark")
     private int mark;
 
     public Student(){
+    }
+
+    public Student(String name, int mark) {
+        this.name = name;
+        this.mark = mark;
     }
 
     public Student(Long id, String name, int mark) {

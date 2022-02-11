@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,6 +14,7 @@ import java.util.stream.Collectors;
 
 public class HibernameConfig {
     private static SessionFactory factory;
+    private static EntityManagerFactory emFactory;
     private Session currentSession;
     private Transaction currentTransaction;
     private Session session;
@@ -20,6 +23,16 @@ public class HibernameConfig {
         Configuration configuration = new Configuration().configure("config/hibernate.cfg.xml");
         factory = configuration.buildSessionFactory();
         return factory;
+    }
+
+    public static EntityManagerFactory getEntityManagerFactory(){
+        return new Configuration().configure("config/hibernate.cfg.xml").buildSessionFactory();
+    }
+
+    public static void close(){
+        if (emFactory != null){
+            emFactory.close();
+        }
     }
 
     public static void shutdown(){

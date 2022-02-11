@@ -38,7 +38,8 @@ public class StudentDao {
 
     public void persist(Student student){
         openCurrentSessionwithTransaction();
-        currentSession.save(student);
+        currentSession.persist(student);
+      //  currentSession.save(student);// save - вставка новой записи
         closeSessionWitnTransaction();
     }
 
