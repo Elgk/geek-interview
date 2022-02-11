@@ -17,8 +17,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
-            <scope>provided
-            </scope> <!--    указывает, что реализацию предоставляет сервер приложений, на который разворачивается это приложение-->
+            <scope>provided</scope> <!--    указывает, что реализацию предоставляет сервер приложений, на который разворачивается это приложение-->
         </dependency>
     </dependencies>
 
