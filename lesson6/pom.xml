@@ -32,7 +32,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-
+<!--  имеется более продвинутый плагин maven cargo для разных серверов, в том числе и для tomcat, см на оригинальном сайте-->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>

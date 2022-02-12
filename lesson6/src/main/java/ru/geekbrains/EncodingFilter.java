@@ -7,7 +7,7 @@ import java.io.IOException;
 
 @WebFilter(urlPatterns = "/*")
 public class EncodingFilter implements Filter {
-
+// фильтры обрабатывают запросы до того, как они попадают на сервлеты
     private FilterConfig  fiterConfig;
 
     @Override
