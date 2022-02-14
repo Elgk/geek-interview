@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>geek-interview Spring</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<script th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.bundle.min.js}"></script>
+
+    <div>
+        <h1>Список студентов</h1>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Отметка</th>
+            </tr>
+            <tr th:each="student: ${students}">
+               <td th:text="${student.id}">...</td>
+               <td th:text="${student.name}">...</td>
+               <td th:text="${student.mark}">...</td>
+               <td>
+                   <form action="#" th:action="@{/student/{id}(id=${student.id})}" method="get" >
+                       <button type="submit" class="btn-primary">Удалить</button>
+                   </form>
+               </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <form action="#" th:action="@{/student}" method="post" th:object="${student}">
+        <div class="mb-3">
+            <label class="form-label">ID</label>
+            <input type="text" class="form-control" id="id" name="id"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" name="name"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Отметка</label>
+            <input type="text" class="form-control" id="mark" name="mark"/>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn-primary">Сохранить</button>
+        </div>
+    </form>
+
+</body>
+</html>
